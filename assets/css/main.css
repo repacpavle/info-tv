@@ -1,0 +1,296 @@
+/** {box-sizing:border-box}*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(-45deg, rgba(30, 30, 30, 1) 0%, rgba(47, 40, 120, 1) 78%, rgba(14, 96, 116, 1) 100%);*/
+}
+
+
+/* fonts */
+
+@font-face {
+    font-family: sseg;
+    src: url(../fonts/fonts-DSEG_v046/DSEG7-Classic/DSEG7Classic-BoldItalic.woff);
+}
+
+
+/* containers */
+
+#grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#slideshow-container {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: white;
+}
+
+#current-time-container {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#current-period-container {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#current-time-container>h1 {
+    flex: 1;
+}
+
+#time-display {
+    font-size: 425%;
+}
+
+#current-period-display {
+    font-size: 300%;
+}
+
+#remaining-time-display {
+    flex: 1;
+    font-size: 500%;
+}
+
+.sseg {
+    font-family: sseg;
+    text-shadow: 1px 1px 7px #101010;
+}
+
+.newsArticle {
+    font-size: larger;
+}
+
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+}
+
+.imgSettings {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 10s;
+    animation-name: fade;
+    animation-duration: 10s;
+}
+
+.fade2 {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 10s;
+    animation-name: fade;
+    animation-duration: 10s;
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: .2
+    }
+    7.5% {
+        opacity: 1
+    }
+    92.5% {
+        opacity: 1
+    }
+    100% {
+        opacity: .2
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: .2
+    }
+    7.5% {
+        opacity: 1
+    }
+    92.5% {
+        opacity: 1
+    }
+    100% {
+        opacity: .2
+    }
+}
+
+@-webkit-keyframes fade2 {
+    0% {
+        opacity: .2
+    }
+    7.5% {
+        opacity: 1
+    }
+    92.5% {
+        opacity: 1
+    }
+    100% {
+        opacity: .2
+    }
+}
+
+@keyframes fade2 {
+    0% {
+        opacity: .2
+    }
+    7.5% {
+        opacity: 1
+    }
+    92.5% {
+        opacity: 1
+    }
+    100% {
+        opacity: .2
+    }
+}
+
+
+/* (A) FIXED WRAPPER */
+
+.marquee-container {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.marquee-container .hwrap {
+    overflow: hidden;
+    /*height: 75%;*/
+    /* HIDE SCROLL BAR */
+    background: #0e2433;
+    color: white;
+}
+
+
+/* (B) MOVING TICKER WRAPPER */
+
+.hmove {
+    display: flex;
+}
+
+
+/* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+
+.hitem {
+    /*flex-shrink: 0;*/
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+
+
+/* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+
+@keyframes tickerh {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(-500%, 0, 0);
+    }
+}
+
+.hmove {
+    animation: tickerh linear 100s infinite;
+}
+
+@media screen and (max-width: 1100px) {
+    #grid-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #slideshow-container {
+        flex: 1;
+        background-color: white;
+    }
+    .hwrap {
+        height: 10vh;
+        flex: 1;
+        overflow: hidden;
+        /* HIDE SCROLL BAR */
+    }
+    #current-time-container {
+        flex: 1;
+    }
+    #current-period-container {
+        flex: 1;
+    }
+    body,
+    html {
+        height: auto;
+    }
+    @keyframes tickerh {
+        0% {
+            transform: translate3d(100%, 0, 0);
+        }
+        100% {
+            transform: translate3d(-1000%, 0, 0);
+        }
+    }
+}
+
+
+/*
+.hmove:hover {
+    animation-play-state: paused;
+}*/
